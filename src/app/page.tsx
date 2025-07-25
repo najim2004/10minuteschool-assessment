@@ -4,6 +4,7 @@ import CourseInstructor from "@/components/course-instructor";
 import FeatureExplanations from "@/components/feature-explanations";
 import Features from "@/components/features";
 import Pointers from "@/components/pointers";
+import StickyChecklist from "@/components/sticky-checklist";
 
 export default function Home() {
   return (
@@ -17,8 +18,8 @@ export default function Home() {
           <AboutCourse/>
           <FeatureExplanations/>
         </section>
-        <section className="w-full md:max-w-[330px] lg:max-w-[400px] order-2 bg-white">
-          {/* <Checklist/> */}
+        <section className="w-full md:max-w-[330px] lg:max-w-[400px] order-1 bg-white">
+          <StickyChecklist/>
         </section>
       </main>
     </div>

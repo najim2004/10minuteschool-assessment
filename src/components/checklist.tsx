@@ -5,7 +5,6 @@ import Image from "next/image";
 
 function Checklist() {
   return (
-    <div className="hidden md:block">
       <div className="grid py-2 md:p-4">
         <p className="mb-4 text-xl font-semibold">এই কোর্সে যা থাকছে</p>
         <div>
@@ -189,7 +188,6 @@ function Checklist() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 

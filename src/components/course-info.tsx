@@ -99,13 +99,13 @@ function CourseInfo() {
             </div>
           </div>
         </div>
-        <section className="w-full md:max-w-[330px] lg:max-w-[400px] order-1 md:order-2 md:bg-white right-0 md:top-[50px] md:absolute">
+        <section id='checklist-1' className="w-full md:max-w-[330px] lg:max-w-[400px] order-1 md:order-2 md:bg-white right-0 md:top-[50px] md:absolute hidden md:block">
           <div className="md:sticky md:top-[112px]">
             <div className="md:border">
               <div className="md:p-1">
                 <Trailer />
               </div>
-              <CallToAction />
+              <CallToAction className="p-4" />
               <Checklist />
             </div>
             <Contact />
