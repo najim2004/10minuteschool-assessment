@@ -1,0 +1,44 @@
+import React from "react";
+
+function CallToAction() {
+  return (
+    <div className="hidden md:block">
+      <div data-device-type="desktop">
+        <div className="w-full p-4 md:h-auto" id="variant">
+          <div className="relative md:static">
+            <div>
+              <div className="flex flex-col w-full">
+                <div>
+                  <div className="flex items-center justify-between md:flex-col md:items-start">
+                    <div className="md:mb-3">
+                      <div className="inline-block text-2xl font-semibold">
+                        ৳3850
+                      </div>
+                      <span className="inline-flex">
+                        <del className="ml-2 text-base font-normal md:text-xl">
+                          ৳5000
+                        </del>
+                        <div className="c-Tukmu inline-block">
+                          <p className="card-price">1150 ৳ ছাড়</p>
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between mb-2"></div>
+                </div>
+                <button className=" bg-green whitespace-nowrap w-full rounded-md px-8 py-2 text-center md:w-full flex justify-center items-center flex-wrap border-b-4 text-white border-[rgba(0,0,0,.3)] hover:bg-[#15803d] hover:border-[#15803d] transition-all duration-500 ease-in-out">
+                  Enroll
+                </button>
+              </div>
+            </div>
+            <div className="absolute md:static top-[-45px] left-0">
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default CallToAction;

@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
@@ -10,7 +8,7 @@ import {
   CallIcon,
   CallIconMobile,
   DropdownIconMobile,
-} from "@/assets/navbar-icons";
+} from "@/assets/icons";
 
 function Navbar() {
   return (

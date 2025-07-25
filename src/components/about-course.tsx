@@ -11,10 +11,8 @@ function AboutCourse() {
             Course details
           </h2>
           <div className="rounded-lg py-2 md:border md:px-5">
-            <details
-              className="mb-0 border-b border-dashed last:border-none"
-            >
-              <summary className="py-4 cursor-pointer">
+            <details className="mb-0 border-b border-dashed last:border-none">
+              <summary className="py-4 cursor-pointer accordion-header">
                 <div className="max-w-[90%] font-medium md:text-base mx-lg:text-sm">
                   <h2>
                     <b>This IELTS course is for</b>
@@ -42,7 +40,7 @@ function AboutCourse() {
               </div>
             </details>
             <details className="mb-0 border-b border-dashed last:border-none">
-              <summary className="py-4 cursor-pointer">
+              <summary className="py-4 cursor-pointer accordion-header">
                 <div className="max-w-[90%] font-medium md:text-base mx-lg:text-sm">
                   <h2>
                     <b>About the IELTS course</b>
@@ -107,7 +105,7 @@ function AboutCourse() {
               </div>
             </details>
             <details className="mb-0 border-b border-dashed last:border-none">
-              <summary className="py-4 cursor-pointer">
+              <summary className="py-4 cursor-pointer accordion-header">
                 <div className="max-w-[90%] font-medium md:text-base mx-lg:text-sm">
                   <h2>
                     <b>
