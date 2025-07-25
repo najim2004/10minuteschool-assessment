@@ -5,7 +5,7 @@ import Link from "next/link";
 function Footer() {
   return (
     <div style={{ display: "block" }}>
-      <div className="max-w-[1200px] mx-auto mb-24 md:mb-0">
+      <div className="max-w-[1200px] mx-auto px-4 mb-24 md:mb-0">
         <div className="flex flex-col pt-12 md:flex-row md:border-[#E4E4E4]">
           <div className="flex flex-col items-center w-full mb-7 md:mb-0 md:items-start lg:mb-7 lg:mr-6">
             <Link className="mb-4" href="/">
