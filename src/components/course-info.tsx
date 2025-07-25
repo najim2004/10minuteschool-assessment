@@ -605,16 +605,8 @@ function CourseInfo() {
                             <div className="flex items-center justify-between md:flex-col md:items-start">
                               <div className="md:mb-3">
                                 <div className="inline-block text-2xl font-semibold">
-                                  ৳3850
+                                  ৳1000
                                 </div>
-                                <span className="inline-flex">
-                                  <del className="ml-2 text-base font-normal md:text-xl">
-                                    ৳5000
-                                  </del>
-                                  <div className="c-Tukmu inline-block">
-                                    <p className="card-price">1150 ৳ ছাড়</p>
-                                  </div>
-                                </span>
                               </div>
                             </div>
                             <div className="flex items-center justify-between mb-2"></div>
