@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 function CourseInfo() {
   return (
@@ -50,17 +51,14 @@ function CourseInfo() {
                         opacity: 1,
                       }}
                     >
-                      <img
+                      <Image
                         alt="image"
-                        data-original-src="https://cdn.10minuteschool.com/images/thumbnails/IELTS_new_16_9.png"
-                        fetchPriority="high"
-                        width="867"
-                        height="480"
-                        decoding="async"
-                        data-nimg="1"
-                        className="w-full"
                         src="https://cdn.10minuteschool.com/images/thumbnails/IELTS_new_16_9.png"
-                        style={{ color: "transparent" }}
+                        width={867}
+                        height={480}
+                        priority
+                        className="w-full"
+                        style={{ color: "transparent", objectFit: "cover" }}
                       />
                     </div>
                   </div>
@@ -102,22 +100,18 @@ function CourseInfo() {
             <div className="flex gap-4 p-4 overflow-x-auto hideScrollbar">
               <div>
                 <div>
-                  <div className="relative w-[55px] rounded cursor-pointer overflow-hidden outline outline-[2px] outline-[#1CAB55]">
+                  <div className="relative w-[55px] rounded cursor-pointer overflow-hidden outline-[2px] outline-[#1CAB55]">
                     <div
                       className="rounded opacity-0 transition-opacity duration-300 ease-in-out"
                       style={{ fontSize: "0px", opacity: 1 }}
                     >
-                      <img
-                        name="preview_gallery"
+                      <Image
                         alt="preview_gallery"
-                        data-original-src="https://cdn.10minuteschool.com/images/thumbnails/IELTS_new_16_9.png"
-                        loading="lazy"
-                        width="86"
-                        height="50"
-                        decoding="async"
-                        data-nimg="1"
-                        style={{ color: "transparent" }}
                         src="https://cdn.10minuteschool.com/images/thumbnails/IELTS_new_16_9.png"
+                        width={86}
+                        height={50}
+                        style={{ color: "transparent" }}
+                        loading="lazy"
                       />
                     </div>
                     <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
@@ -125,17 +119,13 @@ function CourseInfo() {
                         className="undefined opacity-0 transition-opacity duration-300 ease-in-out"
                         style={{ fontSize: "0px", opacity: 1 }}
                       >
-                        <img
-                          name="Play The Video"
+                        <Image
                           alt="Play The Video"
-                          data-original-src="/images/annual_exam/play_icon_2.svg"
-                          fetchPriority="high"
-                          width="20"
-                          height="20"
-                          decoding="async"
-                          data-nimg="1"
-                          style={{ color: "transparent" }}
                           src="https://10minuteschool.com/images/annual_exam/play_icon_2.svg"
+                          width={20}
+                          height={20}
+                          priority
+                          style={{ color: "transparent" }}
                         />
                       </div>
                     </div>
@@ -149,17 +139,13 @@ function CourseInfo() {
                       className="rounded opacity-0 transition-opacity duration-300 ease-in-out"
                       style={{ fontSize: "0px", opacity: 1 }}
                     >
-                      <img
-                        name="preview_gallery"
+                      <Image
                         alt="preview_gallery"
-                        data-original-src="https://cdn.10minuteschool.com/images/catalog/media/PDP_Banner-1_1726737298483.png"
-                        loading="lazy"
-                        width="86"
-                        height="50"
-                        decoding="async"
-                        data-nimg="1"
-                        style={{ color: "transparent" }}
                         src="https://cdn.10minuteschool.com/images/catalog/media/PDP_Banner-1_1726737298483.png"
+                        width={86}
+                        height={50}
+                        style={{ color: "transparent" }}
+                        loading="lazy"
                       />
                     </div>
                   </div>
@@ -172,17 +158,13 @@ function CourseInfo() {
                       className="rounded opacity-0 transition-opacity duration-300 ease-in-out"
                       style={{ fontSize: "0px", opacity: 1 }}
                     >
-                      <img
-                        name="preview_gallery"
+                      <Image
                         alt="preview_gallery"
-                        data-original-src="https://cdn.10minuteschool.com/images/catalog/media/PDP_Banner-2_1726736040872.png"
-                        loading="lazy"
-                        width="86"
-                        height="50"
-                        decoding="async"
-                        data-nimg="1"
-                        style={{ color: "transparent" }}
                         src="https://cdn.10minuteschool.com/images/catalog/media/PDP_Banner-2_1726736040872.png"
+                        width={86}
+                        height={50}
+                        style={{ color: "transparent" }}
+                        loading="lazy"
                       />
                     </div>
                   </div>
@@ -195,17 +177,13 @@ function CourseInfo() {
                       className="rounded opacity-0 transition-opacity duration-300 ease-in-out"
                       style={{ fontSize: "0px", opacity: 1 }}
                     >
-                      <img
-                        name="preview_gallery"
+                      <Image
                         alt="preview_gallery"
-                        data-original-src="https://cdn.10minuteschool.com/images/catalog/media/introduction_1706097447220.jpg"
-                        loading="lazy"
-                        width="86"
-                        height="50"
-                        decoding="async"
-                        data-nimg="1"
-                        style={{ color: "transparent" }}
                         src="https://cdn.10minuteschool.com/images/catalog/media/introduction_1706097447220.jpg"
+                        width={86}
+                        height={50}
+                        style={{ color: "transparent" }}
+                        loading="lazy"
                       />
                     </div>
                     <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
@@ -213,17 +191,13 @@ function CourseInfo() {
                         className="undefined opacity-0 transition-opacity duration-300 ease-in-out"
                         style={{ fontSize: "0px", opacity: 1 }}
                       >
-                        <img
-                          name="Play The Video"
+                        <Image
                           alt="Play The Video"
-                          data-original-src="/images/annual_exam/play_icon_2.svg"
-                          fetchPriority="high"
-                          width="20"
-                          height="20"
-                          decoding="async"
-                          data-nimg="1"
-                          style={{ color: "transparent" }}
                           src="https://10minuteschool.com/images/annual_exam/play_icon_2.svg"
+                          width={20}
+                          height={20}
+                          priority
+                          style={{ color: "transparent" }}
                         />
                       </div>
                     </div>
@@ -237,17 +211,13 @@ function CourseInfo() {
                       className="rounded opacity-0 transition-opacity duration-300 ease-in-out"
                       style={{ fontSize: "0px", opacity: 1 }}
                     >
-                      <img
-                        name="preview_gallery"
+                      <Image
                         alt="preview_gallery"
-                        data-original-src="https://cdn.10minuteschool.com/images/catalog/media/QBz8FX4GE_w-HD_1718880944063.jpg"
-                        loading="lazy"
-                        width="86"
-                        height="50"
-                        decoding="async"
-                        data-nimg="1"
-                        style={{ color: "transparent" }}
                         src="https://cdn.10minuteschool.com/images/catalog/media/QBz8FX4GE_w-HD_1718880944063.jpg"
+                        width={86}
+                        height={50}
+                        style={{ color: "transparent" }}
+                        loading="lazy"
                       />
                     </div>
                     <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
@@ -255,17 +225,13 @@ function CourseInfo() {
                         className="undefined opacity-0 transition-opacity duration-300 ease-in-out"
                         style={{ fontSize: "0px", opacity: 1 }}
                       >
-                        <img
-                          name="Play The Video"
+                        <Image
                           alt="Play The Video"
-                          data-original-src="/images/annual_exam/play_icon_2.svg"
-                          fetchPriority="high"
-                          width="20"
-                          height="20"
-                          decoding="async"
-                          data-nimg="1"
-                          style={{ color: "transparent" }}
                           src="https://10minuteschool.com/images/annual_exam/play_icon_2.svg"
+                          width={20}
+                          height={20}
+                          priority
+                          style={{ color: "transparent" }}
                         />
                       </div>
                     </div>
@@ -279,17 +245,13 @@ function CourseInfo() {
                       className="rounded opacity-0 transition-opacity duration-300 ease-in-out"
                       style={{ fontSize: "0px", opacity: 1 }}
                     >
-                      <img
-                        name="preview_gallery"
+                      <Image
                         alt="preview_gallery"
-                        data-original-src="https://cdn.10minuteschool.com/images/catalog/media/AvB2ibYd1z4-HD_1707647843136.jpg"
-                        loading="lazy"
-                        width="86"
-                        height="50"
-                        decoding="async"
-                        data-nimg="1"
-                        style={{ color: "transparent" }}
                         src="https://cdn.10minuteschool.com/images/catalog/media/AvB2ibYd1z4-HD_1707647843136.jpg"
+                        width={86}
+                        height={50}
+                        style={{ color: "transparent" }}
+                        loading="lazy"
                       />
                     </div>
                     <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
@@ -297,17 +259,13 @@ function CourseInfo() {
                         className="undefined opacity-0 transition-opacity duration-300 ease-in-out"
                         style={{ fontSize: "0px", opacity: 1 }}
                       >
-                        <img
-                          name="Play The Video"
+                        <Image
                           alt="Play The Video"
-                          data-original-src="/images/annual_exam/play_icon_2.svg"
-                          fetchPriority="high"
-                          width="20"
-                          height="20"
-                          decoding="async"
-                          data-nimg="1"
-                          style={{ color: "transparent" }}
                           src="https://10minuteschool.com/images/annual_exam/play_icon_2.svg"
+                          width={20}
+                          height={20}
+                          priority
+                          style={{ color: "transparent" }}
                         />
                       </div>
                     </div>
@@ -326,9 +284,14 @@ function CourseInfo() {
           <div className="mb-2">
             <button className="flex flex-row flex-wrap gap-2 text-white">
               <span className="inline-block">
-                <img
+                <Image
                   className="md:w-[130px] w-[100px]"
                   src="https://cdn.10minuteschool.com/images/Dev_Handoff_Q1_24_Frame_2_1725444418666.png"
+                  alt="Course rating badge"
+                  width={130}
+                  height={100}
+                  priority
+                  style={{ color: "transparent" }}
                 />
               </span>
               <span className="inline-block text-sm md:text-base">
@@ -397,17 +360,13 @@ function CourseInfo() {
                             opacity: 1,
                           }}
                         >
-                          <img
-                            name="IELTS Course by Munzereen Shahid"
+                          <Image
                             alt="IELTS Course by Munzereen Shahid"
-                            data-original-src="https://cdn.10minuteschool.com/images/thumbnails/IELTS_new_16_9.png"
-                            fetchPriority="high"
-                            width="867"
-                            height="480"
-                            decoding="async"
-                            data-nimg="1"
-                            className="w-full"
                             src="https://cdn.10minuteschool.com/images/thumbnails/IELTS_new_16_9.png"
+                            width={867}
+                            height={480}
+                            priority
+                            className="w-full"
                             style={{ color: "transparent" }}
                           />
                         </div>
@@ -450,22 +409,19 @@ function CourseInfo() {
                 <div className="flex gap-4 p-4 overflow-x-auto hideScrollbar">
                   <div>
                     <div>
-                      <div className="relative w-[55px] rounded cursor-pointer overflow-hidden outline outline-[2px] outline-[#1CAB55]">
+                      <div className="relative w-[55px] rounded cursor-pointer overflow-hidden outline-[2px] outline-[#1CAB55]">
                         <div
                           className="rounded opacity-0 transition-opacity duration-300 ease-in-out"
                           style={{ fontSize: "0px", opacity: 1 }}
                         >
-                          <img
-                            name="preview_gallery"
+                          <Image
                             alt="preview_gallery"
-                            data-original-src="https://cdn.10minuteschool.com/images/thumbnails/IELTS_new_16_9.png"
-                            loading="lazy"
-                            width="86"
-                            height="50"
-                            decoding="async"
-                            data-nimg="1"
-                            style={{ color: "transparent" }}
                             src="https://cdn.10minuteschool.com/images/thumbnails/IELTS_new_16_9.png"
+                            width={86}
+                            height={50}
+                            style={{ color: "transparent" }}
+                            loading="lazy"
+                            priority={false}
                           />
                         </div>
                         <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
@@ -473,17 +429,13 @@ function CourseInfo() {
                             className="undefined opacity-0 transition-opacity duration-300 ease-in-out"
                             style={{ fontSize: "0px", opacity: 1 }}
                           >
-                            <img
-                              name="Play The Video"
+                            <Image
                               alt="Play The Video"
-                              data-original-src="/images/annual_exam/play_icon_2.svg"
-                              fetchPriority="high"
-                              width="20"
-                              height="20"
-                              decoding="async"
-                              data-nimg="1"
-                              style={{ color: "transparent" }}
                               src="https://10minuteschool.com/images/annual_exam/play_icon_2.svg"
+                              width={20}
+                              height={20}
+                              priority
+                              style={{ color: "transparent" }}
                             />
                           </div>
                         </div>
@@ -497,17 +449,14 @@ function CourseInfo() {
                           className="rounded opacity-0 transition-opacity duration-300 ease-in-out"
                           style={{ fontSize: "0px", opacity: 1 }}
                         >
-                          <img
-                            name="preview_gallery"
+                          <Image
                             alt="preview_gallery"
-                            data-original-src="https://cdn.10minuteschool.com/images/catalog/media/PDP_Banner-1_1726737298483.png"
-                            loading="lazy"
-                            width="86"
-                            height="50"
-                            decoding="async"
-                            data-nimg="1"
-                            style={{ color: "transparent" }}
                             src="https://cdn.10minuteschool.com/images/catalog/media/PDP_Banner-1_1726737298483.png"
+                            width={86}
+                            height={50}
+                            style={{ color: "transparent" }}
+                            loading="lazy"
+                            priority={false}
                           />
                         </div>
                       </div>
@@ -520,17 +469,14 @@ function CourseInfo() {
                           className="rounded opacity-0 transition-opacity duration-300 ease-in-out"
                           style={{ fontSize: "0px", opacity: 1 }}
                         >
-                          <img
-                            name="preview_gallery"
+                          <Image
                             alt="preview_gallery"
-                            data-original-src="https://cdn.10minuteschool.com/images/catalog/media/PDP_Banner-2_1726736040872.png"
-                            loading="lazy"
-                            width="86"
-                            height="50"
-                            decoding="async"
-                            data-nimg="1"
-                            style={{ color: "transparent" }}
                             src="https://cdn.10minuteschool.com/images/catalog/media/PDP_Banner-2_1726736040872.png"
+                            width={86}
+                            height={50}
+                            style={{ color: "transparent" }}
+                            loading="lazy"
+                            priority={false}
                           />
                         </div>
                       </div>
@@ -543,17 +489,14 @@ function CourseInfo() {
                           className="rounded opacity-0 transition-opacity duration-300 ease-in-out"
                           style={{ fontSize: "0px", opacity: 1 }}
                         >
-                          <img
-                            name="preview_gallery"
+                          <Image
                             alt="preview_gallery"
-                            data-original-src="https://cdn.10minuteschool.com/images/catalog/media/introduction_1706097447220.jpg"
-                            loading="lazy"
-                            width="86"
-                            height="50"
-                            decoding="async"
-                            data-nimg="1"
-                            style={{ color: "transparent" }}
                             src="https://cdn.10minuteschool.com/images/catalog/media/introduction_1706097447220.jpg"
+                            width={86}
+                            height={50}
+                            style={{ color: "transparent" }}
+                            loading="lazy"
+                            priority={false}
                           />
                         </div>
                         <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
@@ -561,17 +504,13 @@ function CourseInfo() {
                             className="undefined opacity-0 transition-opacity duration-300 ease-in-out"
                             style={{ fontSize: "0px", opacity: 1 }}
                           >
-                            <img
-                              name="Play The Video"
+                            <Image
                               alt="Play The Video"
-                              data-original-src="/images/annual_exam/play_icon_2.svg"
-                              fetchPriority="high"
-                              width="20"
-                              height="20"
-                              decoding="async"
-                              data-nimg="1"
-                              style={{ color: "transparent" }}
                               src="https://10minuteschool.com/images/annual_exam/play_icon_2.svg"
+                              width={20}
+                              height={20}
+                              priority
+                              style={{ color: "transparent" }}
                             />
                           </div>
                         </div>
@@ -585,17 +524,14 @@ function CourseInfo() {
                           className="rounded opacity-0 transition-opacity duration-300 ease-in-out"
                           style={{ fontSize: "0px", opacity: 1 }}
                         >
-                          <img
-                            name="preview_gallery"
+                          <Image
                             alt="preview_gallery"
-                            data-original-src="https://cdn.10minuteschool.com/images/catalog/media/QBz8FX4GE_w-HD_1718880944063.jpg"
-                            loading="lazy"
-                            width="86"
-                            height="50"
-                            decoding="async"
-                            data-nimg="1"
-                            style={{ color: "transparent" }}
                             src="https://cdn.10minuteschool.com/images/catalog/media/QBz8FX4GE_w-HD_1718880944063.jpg"
+                            width={86}
+                            height={50}
+                            style={{ color: "transparent" }}
+                            loading="lazy"
+                            priority={false}
                           />
                         </div>
                         <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
@@ -603,17 +539,13 @@ function CourseInfo() {
                             className="undefined opacity-0 transition-opacity duration-300 ease-in-out"
                             style={{ fontSize: "0px", opacity: 1 }}
                           >
-                            <img
-                              name="Play The Video"
+                            <Image
                               alt="Play The Video"
-                              data-original-src="/images/annual_exam/play_icon_2.svg"
-                              fetchPriority="high"
-                              width="20"
-                              height="20"
-                              decoding="async"
-                              data-nimg="1"
-                              style={{ color: "transparent" }}
                               src="https://10minuteschool.com/images/annual_exam/play_icon_2.svg"
+                              width={20}
+                              height={20}
+                              priority
+                              style={{ color: "transparent" }}
                             />
                           </div>
                         </div>
@@ -627,17 +559,14 @@ function CourseInfo() {
                           className="rounded opacity-0 transition-opacity duration-300 ease-in-out"
                           style={{ fontSize: "0px", opacity: 1 }}
                         >
-                          <img
-                            name="preview_gallery"
+                          <Image
                             alt="preview_gallery"
-                            data-original-src="https://cdn.10minuteschool.com/images/catalog/media/AvB2ibYd1z4-HD_1707647843136.jpg"
-                            loading="lazy"
-                            width="86"
-                            height="50"
-                            decoding="async"
-                            data-nimg="1"
-                            style={{ color: "transparent" }}
                             src="https://cdn.10minuteschool.com/images/catalog/media/AvB2ibYd1z4-HD_1707647843136.jpg"
+                            width={86}
+                            height={50}
+                            style={{ color: "transparent" }}
+                            loading="lazy"
+                            priority={false}
                           />
                         </div>
                         <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
@@ -645,17 +574,13 @@ function CourseInfo() {
                             className="undefined opacity-0 transition-opacity duration-300 ease-in-out"
                             style={{ fontSize: "0px", opacity: 1 }}
                           >
-                            <img
-                              name="Play The Video"
+                            <Image
                               alt="Play The Video"
-                              data-original-src="/images/annual_exam/play_icon_2.svg"
-                              fetchPriority="high"
-                              width="20"
-                              height="20"
-                              decoding="async"
-                              data-nimg="1"
-                              style={{ color: "transparent" }}
                               src="https://10minuteschool.com/images/annual_exam/play_icon_2.svg"
+                              width={20}
+                              height={20}
+                              priority
+                              style={{ color: "transparent" }}
                             />
                           </div>
                         </div>
@@ -717,17 +642,13 @@ function CourseInfo() {
                         className="inline-block h-[20px] w-[20px] opacity-0 transition-opacity duration-300 ease-in-out"
                         style={{ fontSize: "0px", opacity: 1 }}
                       >
-                        <img
-                          name="icon"
+                        <Image
                           alt="icon"
-                          data-original-src="https://cdn.10minuteschool.com/images/PDP/course-fact-icons/course_participants.png"
-                          loading="lazy"
-                          width="20"
-                          height="20"
-                          decoding="async"
-                          data-nimg="1"
-                          style={{ color: "transparent" }}
                           src="https://cdn.10minuteschool.com/images/PDP/course-fact-icons/course_participants.png"
+                          width={20}
+                          height={20}
+                          loading="lazy"
+                          style={{ color: "transparent" }}
                         />
                       </div>
                       <h4 className="mb-0 inline-block pl-4 tracking-[0.005em] text-[#111827]">
@@ -741,17 +662,13 @@ function CourseInfo() {
                         className="inline-block h-[20px] w-[20px] opacity-0 transition-opacity duration-300 ease-in-out"
                         style={{ fontSize: "0px", opacity: 1 }}
                       >
-                        <img
-                          name="icon"
+                        <Image
                           alt="icon"
-                          data-original-src="https://cdn.10minuteschool.com/images/PDP/course-fact-icons/time.png"
-                          loading="lazy"
-                          width="20"
-                          height="20"
-                          decoding="async"
-                          data-nimg="1"
-                          style={{ color: "transparent" }}
                           src="https://cdn.10minuteschool.com/images/PDP/course-fact-icons/time.png"
+                          width={20}
+                          height={20}
+                          loading="lazy"
+                          style={{ color: "transparent" }}
                         />
                       </div>
                       <h4 className="mb-0 inline-block pl-4 tracking-[0.005em] text-[#111827]">
@@ -765,17 +682,13 @@ function CourseInfo() {
                         className="inline-block h-[20px] w-[20px] opacity-0 transition-opacity duration-300 ease-in-out"
                         style={{ fontSize: "0px", opacity: 1 }}
                       >
-                        <img
-                          name="icon"
+                        <Image
                           alt="icon"
-                          data-original-src="https://cdn.10minuteschool.com/images/PDP/course-fact-icons/video.png"
-                          loading="lazy"
-                          width="20"
-                          height="20"
-                          decoding="async"
-                          data-nimg="1"
-                          style={{ color: "transparent" }}
                           src="https://cdn.10minuteschool.com/images/PDP/course-fact-icons/video.png"
+                          width={20}
+                          height={20}
+                          loading="lazy"
+                          style={{ color: "transparent" }}
                         />
                       </div>
                       <h4 className="mb-0 inline-block pl-4 tracking-[0.005em] text-[#111827]">
@@ -789,17 +702,13 @@ function CourseInfo() {
                         className="inline-block h-[20px] w-[20px] opacity-0 transition-opacity duration-300 ease-in-out"
                         style={{ fontSize: "0px", opacity: 1 }}
                       >
-                        <img
-                          name="icon"
+                        <Image
                           alt="icon"
-                          data-original-src="https://cdn.10minuteschool.com/images/PDP/course-fact-icons/mock_test.png"
-                          loading="lazy"
-                          width="20"
-                          height="20"
-                          decoding="async"
-                          data-nimg="1"
-                          style={{ color: "transparent" }}
                           src="https://cdn.10minuteschool.com/images/PDP/course-fact-icons/mock_test.png"
+                          width={20}
+                          height={20}
+                          loading="lazy"
+                          style={{ color: "transparent" }}
                         />
                       </div>
                       <h4 className="mb-0 inline-block pl-4 tracking-[0.005em] text-[#111827]">
@@ -813,17 +722,13 @@ function CourseInfo() {
                         className="inline-block h-[20px] w-[20px] opacity-0 transition-opacity duration-300 ease-in-out"
                         style={{ fontSize: "0px", opacity: 1 }}
                       >
-                        <img
-                          name="icon"
+                        <Image
                           alt="icon"
-                          data-original-src="https://cdn.10minuteschool.com/images/PDP/course-fact-icons/cheatsheet-projectfile-exercisefile-sourcefile-resource.png"
-                          loading="lazy"
-                          width="20"
-                          height="20"
-                          decoding="async"
-                          data-nimg="1"
-                          style={{ color: "transparent" }}
                           src="https://cdn.10minuteschool.com/images/PDP/course-fact-icons/cheatsheet-projectfile-exercisefile-sourcefile-resource.png"
+                          width={20}
+                          height={20}
+                          loading="lazy"
+                          style={{ color: "transparent" }}
                         />
                       </div>
                       <h4 className="mb-0 inline-block pl-4 tracking-[0.005em] text-[#111827]">
@@ -837,17 +742,13 @@ function CourseInfo() {
                         className="inline-block h-[20px] w-[20px] opacity-0 transition-opacity duration-300 ease-in-out"
                         style={{ fontSize: "0px", opacity: 1 }}
                       >
-                        <img
-                          name="icon"
+                        <Image
                           alt="icon"
-                          data-original-src="https://cdn.10minuteschool.com/images/PDP/course-fact-icons/video-lecture.png"
-                          loading="lazy"
-                          width="20"
-                          height="20"
-                          decoding="async"
-                          data-nimg="1"
-                          style={{ color: "transparent" }}
                           src="https://cdn.10minuteschool.com/images/PDP/course-fact-icons/video-lecture.png"
+                          width={20}
+                          height={20}
+                          loading="lazy"
+                          style={{ color: "transparent" }}
                         />
                       </div>
                       <h4 className="mb-0 inline-block pl-4 tracking-[0.005em] text-[#111827]">
@@ -861,17 +762,13 @@ function CourseInfo() {
                         className="inline-block h-[20px] w-[20px] opacity-0 transition-opacity duration-300 ease-in-out"
                         style={{ fontSize: "0px", opacity: 1 }}
                       >
-                        <img
-                          name="icon"
+                        <Image
                           alt="icon"
-                          data-original-src="https://cdn.10minuteschool.com/images/Landing_page/pdp_icon_flashcard.png"
-                          loading="lazy"
-                          width="20"
-                          height="20"
-                          decoding="async"
-                          data-nimg="1"
-                          style={{ color: "transparent" }}
                           src="https://cdn.10minuteschool.com/images/Landing_page/pdp_icon_flashcard.png"
+                          width={20}
+                          height={20}
+                          loading="lazy"
+                          style={{ color: "transparent" }}
                         />
                       </div>
                       <h4 className="mb-0 inline-block pl-4 tracking-[0.005em] text-[#111827]">
@@ -885,15 +782,12 @@ function CourseInfo() {
                         className="inline-block h-[20px] w-[20px] opacity-0 transition-opacity duration-300 ease-in-out"
                         style={{ fontSize: "0px", opacity: 1 }}
                       >
-                        <img
-                          name="icon"
+                        <Image
                           alt="icon"
-                          data-original-src="https://cdn.10minuteschool.com/images/PDP/course-fact-icons/facebook-community.png"
                           loading="lazy"
-                          width="20"
-                          height="20"
+                          width={20}
+                          height={20}
                           decoding="async"
-                          data-nimg="1"
                           style={{ color: "transparent" }}
                           src="https://cdn.10minuteschool.com/images/PDP/course-fact-icons/facebook-community.png"
                         />
@@ -909,15 +803,11 @@ function CourseInfo() {
                         className="inline-block h-[20px] w-[20px] opacity-0 transition-opacity duration-300 ease-in-out"
                         style={{ fontSize: "0px", opacity: 1 }}
                       >
-                        <img
-                          name="icon"
+                        <Image
                           alt="icon"
-                          data-original-src="https://cdn.10minuteschool.com/images/PDP/course-fact-icons/time-limit.png"
                           loading="lazy"
-                          width="20"
-                          height="20"
-                          decoding="async"
-                          data-nimg="1"
+                          width={20}
+                          height={20}
                           style={{ color: "transparent" }}
                           src="https://cdn.10minuteschool.com/images/PDP/course-fact-icons/time-limit.png"
                         />
