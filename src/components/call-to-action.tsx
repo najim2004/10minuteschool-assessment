@@ -2,9 +2,10 @@ import React from "react";
 
 interface CallToActionProps {
   className?: string;
+  name: string;
 }
 
-function CallToAction({ className }: CallToActionProps) {
+function CallToAction({ className, name }: CallToActionProps) {
   return (
     <div className={className}>
       <div className="w-full md:h-auto">
@@ -22,7 +23,7 @@ function CallToAction({ className }: CallToActionProps) {
                 <div className="flex items-center justify-between mb-2"></div>
               </div>
               <button className=" bg-green whitespace-nowrap w-full rounded-md px-8 py-1 md:py-2 text-center md:w-full flex justify-center items-center flex-wrap border-b-4 text-white border-[rgba(0,0,0,.3)] hover:bg-[#15803d] hover:border-[#15803d] transition-all duration-500 ease-in-out">
-                Enroll
+                {name}
               </button>
             </div>
           </div>

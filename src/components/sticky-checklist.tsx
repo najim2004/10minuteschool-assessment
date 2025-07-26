@@ -4,7 +4,20 @@ import Checklist from "./checklist";
 import CallToAction from "./call-to-action";
 import Contact from "./contact";
 
-export default function StickyChecklist() {
+interface StickyChecklistProps {
+  checklistData: {
+    id: string;
+    icon: string;
+    text: string;
+    list_page_visibility: boolean;
+  }[];
+  cta_text: {
+    name: string;
+    value: string;
+  };
+}
+
+export default function StickyChecklist({ checklistData, cta_text }: StickyChecklistProps) {
   const [isCheckList1Visible, checklist1visible] = useState(true);
   const [isMdUp, setIsMdUp] = useState(false);
 
@@ -42,7 +55,7 @@ export default function StickyChecklist() {
   return (
     <div
       id="checklist-2"
-      className={`sticky top-[112px] transition-opacity duration-300
+      className={`sticky top-[112px] transition-opacity duration-300 bg-white
         ${
           isMdUp
             ? isCheckList1Visible
@@ -53,8 +66,8 @@ export default function StickyChecklist() {
       `}
     >
       <div className="md:border md:p-4">
-        <CallToAction />
-        <Checklist />
+        <CallToAction name={cta_text.name}/>
+        <Checklist items={checklistData} />
       </div>
       <Contact />
     </div>
