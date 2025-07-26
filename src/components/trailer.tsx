@@ -1,17 +1,11 @@
 "use client";
 
+import { Media } from "@/types";
 import Image from "next/image";
 import React, { useState, useRef, useEffect, JSX } from "react";
 
-type MediaItem = {
-  name: string;
-  resource_type: "video" | "image";
-  resource_value: string;
-  thumbnail_url?: string;
-};
-
 interface TrailerProps {
-  mediaItems: MediaItem[];
+  mediaItems: Media[];
 }
 
 const MAIN_PLAYER_WIDTH = 867;
