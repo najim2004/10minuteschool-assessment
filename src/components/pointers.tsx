@@ -1,12 +1,5 @@
-import { Section } from "@/types";
+import { PointerValue, Section } from "@/types";
 import React from "react";
-
-export type PointerValue = {
-  color: string;
-  icon: string;
-  id: string;
-  text: string;
-};
 
 interface CoursePointersProps extends Section {
   values: PointerValue[];
