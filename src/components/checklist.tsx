@@ -8,63 +8,6 @@ interface ChecklistItem {
   list_page_visibility: boolean;
 }
 
-const checklistData: ChecklistItem[] = [
-  {
-    id: "1",
-    icon: "https://cdn.10minuteschool.com/images/PDP/course-fact-icons/course_participants.png",
-    text: "Total Enrolled 32995",
-    list_page_visibility: true,
-  },
-  {
-    id: "2",
-    icon: "https://cdn.10minuteschool.com/images/PDP/course-fact-icons/time.png",
-    text: "Time Required 50 hours",
-    list_page_visibility: true,
-  },
-  {
-    id: "3",
-    icon: "https://cdn.10minuteschool.com/images/PDP/course-fact-icons/video.png",
-    text: "54 Videos",
-    list_page_visibility: true,
-  },
-  {
-    id: "4",
-    icon: "https://cdn.10minuteschool.com/images/PDP/course-fact-icons/mock_test.png",
-    text: "10 Reading & 10 Listening Mocktests",
-    list_page_visibility: true,
-  },
-  {
-    id: "5",
-    icon: "https://cdn.10minuteschool.com/images/PDP/course-fact-icons/cheatsheet-projectfile-exercisefile-sourcefile-resource.png",
-    text: "38 Lecture Sheets",
-    list_page_visibility: true,
-  },
-  {
-    id: "6",
-    icon: "https://cdn.10minuteschool.com/images/PDP/course-fact-icons/video-lecture.png",
-    text: "25 Video Lectures",
-    list_page_visibility: true,
-  },
-  {
-    id: "7",
-    icon: "https://cdn.10minuteschool.com/images/Landing_page/pdp_icon_flashcard.png",
-    text: "1 Free Hardcopy Book Delivered",
-    list_page_visibility: true,
-  },
-  {
-    id: "8",
-    icon: "https://cdn.10minuteschool.com/images/PDP/course-fact-icons/facebook-community.png",
-    text: "Facebook Support Group",
-    list_page_visibility: true,
-  },
-  {
-    id: "9",
-    icon: "https://cdn.10minuteschool.com/images/PDP/course-fact-icons/time-limit.png",
-    text: "Course Validity Lifetime",
-    list_page_visibility: true,
-  },
-];
-
 interface ChecklistProps {
   items: ChecklistItem[];
 }

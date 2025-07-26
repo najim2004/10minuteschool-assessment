@@ -1,3 +1,4 @@
+import { Section } from "@/types";
 import React from "react";
 
 export type PointerValue = {
@@ -7,14 +8,9 @@ export type PointerValue = {
   text: string;
 };
 
-type CoursePointersProps = {
-  type: string;
-  name: string;
-  description: string;
-  bg_color: string;
-  order_idx: number;
+interface CoursePointersProps extends Section {
   values: PointerValue[];
-};
+}
 
 function Pointers({ name, type, order_idx, values }: CoursePointersProps) {
   if (!values || values.length === 0) {

@@ -1,20 +1,9 @@
+import { AboutValue, Section } from "@/types";
 import React from "react";
 
-export type AboutValue = {
-  description: string;
-  icon: string;
-  id: string;
-  title: string;
-};
-
-type CourseDetailsProps = {
-  type: string;
-  name: string;
-  description: string;
-  bg_color: string;
-  order_idx: number;
+interface CourseDetailsProps extends Section {
   values: AboutValue[];
-};
+}
 
 function AboutCourse({ type, order_idx, name, values }: CourseDetailsProps) {
   return (

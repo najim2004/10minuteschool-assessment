@@ -1,25 +1,10 @@
-"use client";
-
+import { FeatureExplanationValue, Section } from "@/types";
 import Image from "next/image";
 import React from "react";
 
-export type FeatureExplanationValue = {
-  checklist: string[];
-  file_type: string;
-  file_url: string;
-  id: string;
-  title: string;
-  video_thumbnail: string;
-};
-
-type CourseExclusiveFeatureProps = {
-  type: string;
-  name: string;
-  description: string;
-  bg_color: string;
-  order_idx: number;
+interface CourseExclusiveFeatureProps extends Section {
   values: FeatureExplanationValue[];
-};
+}
 
 function FeatureExplanations({
   type,
@@ -77,7 +62,6 @@ function FeatureExplanations({
                     className="mb-4 mx-auto max-w-[350px] opacity-0 transition-opacity duration-300 ease-in-out"
                     style={{ fontSize: "0px", opacity: 1 }}
                   >
-                    {/* --- Start of change --- */}
                     {feature.file_type === "image" && feature.file_url && (
                       <Image
                         alt={feature.title}
@@ -85,10 +69,9 @@ function FeatureExplanations({
                         width={250}
                         height={200}
                         style={{ color: "transparent" }}
-                        src={feature.file_url} // Changed from feature.video_thumbnail
+                        src={feature.file_url}
                       />
                     )}
-                    {/* --- End of change --- */}
                   </div>
                 </div>
               </div>

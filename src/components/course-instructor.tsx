@@ -1,23 +1,10 @@
+import { InstructorValue, Section } from "@/types";
 import Image from "next/image";
 import React from "react";
 
-export type InstructorValue = {
-  description: string;
-  has_instructor_page: boolean;
-  image: string;
-  name: string;
-  short_description: string;
-  slug: string;
-};
-
-type CourseInstructorProps = {
-  type: string;
-  name: string;
-  description: string;
-  bg_color: string;
-  order_idx: number;
+interface CourseInstructorProps extends Section {
   values: InstructorValue[];
-};
+}
 
 function CourseInstructor({
   values,

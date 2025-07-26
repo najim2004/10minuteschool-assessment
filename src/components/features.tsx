@@ -1,21 +1,10 @@
+import { FeatureValue, Section } from "@/types";
 import Image from "next/image";
 import React from "react";
 
-export type FeatureValue = {
-  icon: string;
-  id: string;
-  subtitle: string;
-  title: string;
-};
-
-type CourseFeaturesProps = {
-  type: string;
-  name: string;
-  description: string;
-  bg_color: string;
-  order_idx: number;
+interface CourseFeaturesProps extends Section {
   values: FeatureValue[];
-};
+}
 
 function Features({ name, type, order_idx, values }: CourseFeaturesProps) {
   if (!values || values.length === 0) {

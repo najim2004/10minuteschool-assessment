@@ -1,166 +1,21 @@
-import AboutCourse, { AboutValue } from "@/components/about-course";
+import AboutCourse from "@/components/about-course";
 import CourseInfo from "@/components/course-info";
-import CourseInstructor, {
-  InstructorValue,
-} from "@/components/course-instructor";
-import FeatureExplanations, {
-  FeatureExplanationValue,
-} from "@/components/feature-explanations";
-import Features, { FeatureValue } from "@/components/features";
-import Pointers, { PointerValue } from "@/components/pointers";
+import CourseInstructor from "@/components/course-instructor";
+import FeatureExplanations from "@/components/feature-explanations";
+import Features from "@/components/features";
+import Pointers from "@/components/pointers";
 import StickyChecklist from "@/components/sticky-checklist";
+import {
+  AboutValue,
+  CourseData,
+  CourseResponse,
+  FeatureExplanationValue,
+  FeatureValue,
+  InstructorValue,
+  PointerValue,
+} from "@/types";
+import { notFound } from "next/navigation";
 
-// ==========================
-// Types
-// ==========================
-interface CourseResponse {
-  code: number;
-  data: CourseData;
-  error: ErrorItem[]; // Define a specific type instead of any[]
-  message: string;
-  payload: PayloadItem[]; // Define a specific type instead of any[]
-  status_code: number;
-}
-
-interface CourseData {
-  slug: string;
-  id: number;
-  title: string;
-  description: string;
-  platform: string;
-  type: string;
-  modality: string;
-  old_info: {
-    cat_id: number;
-    course_id: number;
-    platform: string;
-    skills_cat_id: number;
-    slug: string;
-  };
-  start_at: string;
-  media: Media[];
-  checklist: Checklist[];
-  seo: Seo;
-  cta_text: {
-    name: string;
-    value: string;
-  };
-  sections: Section[];
-  is_cohort_based_course: boolean;
-  secondary_cta_group: SecondaryCtaItem[]; // Define a specific type instead of any[]
-  delivery_method: string;
-}
-
-interface ErrorItem {
-  // Placeholder interface; update based on actual error structure if known
-  code?: string;
-  message?: string;
-}
-
-interface PayloadItem {
-  // Placeholder interface; update based on actual payload structure if known
-  id?: string;
-  value?: string;
-}
-
-interface SecondaryCtaItem {
-  // Placeholder interface; update based on actual secondary_cta_group structure if known
-  name?: string;
-  value?: string;
-}
-
-interface Media {
-  name: string;
-  resource_type: string;
-  resource_value: string;
-  thumbnail_url?: string;
-}
-
-interface Checklist {
-  color: string;
-  icon: string;
-  id: string;
-  list_page_visibility: boolean;
-  text: string;
-}
-
-interface Seo {
-  defaultMeta: Meta[];
-  description: string;
-  keywords: string[];
-  schema: Schema[];
-  title: string;
-}
-
-interface Meta {
-  content: string;
-  type: string;
-  value: string;
-}
-
-interface Schema {
-  meta_name: string;
-  meta_value: string;
-  type: string;
-}
-
-interface Section {
-  type: string;
-  name: string;
-  description: string;
-  bg_color: string;
-  order_idx: number;
-  values: SectionValue[];
-}
-
-interface SectionValue {
-  id?: string;
-  title?: string;
-  description?: string;
-  icon?: string;
-  subtitle?: string;
-  background_color?: string;
-  background_img?: string;
-  checklist_text_color?: string;
-  end_at?: string;
-  start_at?: string;
-  template?: string;
-  text?: string;
-  has_instructor_page?: boolean;
-  image?: string;
-  name?: string;
-  short_description?: string;
-  slug?: string;
-  file_type?: string;
-  file_url?: string;
-  video_thumbnail?: string;
-  checklist?: string[];
-  background?: {
-    image?: string;
-    primary_color?: string;
-    secondary_color?: string;
-  };
-  cta?: {
-    clicked_url?: string;
-    color?: string;
-    text?: string;
-  };
-  description_color?: string;
-  title_color?: string;
-  top_left_icon_img?: string;
-  thumbnail?: string;
-  profile_image?: string;
-  testimonial?: string;
-  thumb?: string;
-  video_type?: string;
-  video_url?: string;
-  answer?: string;
-  question?: string;
-}
-
-// ==========================
-// Fetch Function
-// ==========================
 const getCourseDetailsData = async (): Promise<CourseData> => {
   const res = await fetch(
     "https://api.10minuteschool.com/discovery-service/api/v1/products/ielts-course?lang=en",
@@ -170,7 +25,7 @@ const getCourseDetailsData = async (): Promise<CourseData> => {
         accept: "application/json",
       },
       next: {
-        revalidate: 60, // ISR every 60 seconds
+        revalidate: 60,
       },
     }
   );
@@ -183,13 +38,11 @@ const getCourseDetailsData = async (): Promise<CourseData> => {
   return json.data;
 };
 
-// ==========================
-// Page Component
-// ==========================
 export default async function Home() {
   const data: CourseData | void = await getCourseDetailsData().catch(
     (error) => {
       console.error("Error fetching course data:", error);
+      notFound();
     }
   );
   if (!data) {
