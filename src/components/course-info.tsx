@@ -3,6 +3,7 @@ import CallToAction from "./call-to-action";
 import Checklist from "./checklist";
 import Contact from "./contact";
 import Trailer from "./trailer";
+import { Media } from "@/types";
 
 interface CourseInfoProps {
   checklistData: {
@@ -17,6 +18,7 @@ interface CourseInfoProps {
     name: string;
     value: string;
   };
+  media: Media[];
 }
 
 function CourseInfo({
@@ -24,6 +26,7 @@ function CourseInfo({
   title,
   description,
   cta_text,
+  media,
 }: CourseInfoProps) {
   return (
     <div
@@ -63,7 +66,7 @@ function CourseInfo({
           <div className="md:sticky md:top-[112px]">
             <div className="md:border">
               <div className="md:p-1">
-                <Trailer />
+                <Trailer mediaItems={media} />
               </div>
               <div className="hidden md:block">
                 <CallToAction className="p-4" name={cta_text.name} />

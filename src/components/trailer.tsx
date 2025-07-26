@@ -1,271 +1,230 @@
-import Image from "next/image";
-import React from "react";
+"use client";
 
-function Trailer() {
+import Image from "next/image";
+import React, { useState, useRef, useEffect, JSX } from "react";
+
+type MediaItem = {
+  name: string;
+  resource_type: "video" | "image";
+  resource_value: string;
+  thumbnail_url?: string;
+};
+
+interface TrailerProps {
+  mediaItems: MediaItem[];
+}
+
+const MAIN_PLAYER_WIDTH = 867;
+const MAIN_PLAYER_HEIGHT = 480;
+const PAGINATION_THUMB_WIDTH = 55;
+const PAGINATION_THUMB_HEIGHT = 33;
+
+function Trailer({ mediaItems }: TrailerProps): JSX.Element | null {
+  const [currentMediaIndex, setCurrentMediaIndex] = useState<number>(0);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+
+  const paginationRef = useRef<HTMLDivElement>(null);
+  const thumbnailRefs = useRef<Array<HTMLDivElement | null>>([]);
+
+  useEffect(() => {
+    if (paginationRef.current && thumbnailRefs.current[currentMediaIndex]) {
+      thumbnailRefs.current[currentMediaIndex]?.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
+    }
+  }, [currentMediaIndex]);
+
+  if (!mediaItems || mediaItems.length === 0) {
+    return null;
+  }
+
+  const currentMedia = mediaItems[currentMediaIndex];
+
+  const handleThumbnailClick = (index: number) => {
+    setCurrentMediaIndex(index);
+    setIsPlaying(false);
+  };
+
+  const handleMainPlayClick = () => {
+    if (currentMedia.resource_type === "video") {
+      setIsPlaying(true);
+    }
+  };
+
+  const goToPrevMedia = () => {
+    setCurrentMediaIndex((prevIndex) =>
+      prevIndex === 0 ? mediaItems.length - 1 : prevIndex - 1
+    );
+    setIsPlaying(false);
+  };
+
+  const goToNextMedia = () => {
+    setCurrentMediaIndex((prevIndex) =>
+      prevIndex === mediaItems.length - 1 ? 0 : prevIndex + 1
+    );
+    setIsPlaying(false);
+  };
+
   return (
     <>
-      {/* slider */}
+      {/* Main Player */}
       <div className="relative overflow-hidden bg-black youtube-video aspect-video">
-        <div className="relative">
-          <span className="absolute left-1/2 top-1/2 z-[2] -translate-x-1/2 -translate-y-1/2 cursor-pointer">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="56"
-              height="56"
-              fill="none"
-              viewBox="0 0 56 56"
-            >
-              <circle
-                cx="28"
-                cy="28"
-                r="28"
-                fill="#fff"
-                fillOpacity="0.5"
-              ></circle>
-              <circle cx="27.999" cy="28" r="25.415" fill="#fff"></circle>
-              <path
-                fill="#1CAB55"
-                d="M37.492 26.268c1.334.77 1.334 2.694 0 3.464l-12.738 7.355c-1.334.77-3-.193-3-1.732v-14.71c0-1.539 1.666-2.501 3-1.732l12.738 7.355z"
-              ></path>
-            </svg>
-          </span>
-          <div className="thumb-wrap">
-            <div>
+        <div className="relative w-full h-full">
+          {currentMedia.resource_type === "video" && !isPlaying && (
+            <>
+              <div className="absolute inset-0 bg-black opacity-40 z-[1]" />
+              <span
+                className="absolute left-1/2 top-1/2 z-[2] -translate-x-1/2 -translate-y-1/2 cursor-pointer"
+                onClick={handleMainPlayClick}
+              >
+                {/* Play button SVG */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="56"
+                  height="56"
+                  fill="none"
+                  viewBox="0 0 56 56"
+                >
+                  <circle
+                    cx="28"
+                    cy="28"
+                    r="28"
+                    fill="#fff"
+                    fillOpacity="0.5"
+                  />
+                  <circle cx="28" cy="28" r="25.415" fill="#fff" />
+                  <path
+                    fill="#1CAB55"
+                    d="M37.492 26.268c1.334.77 1.334 2.694 0 3.464l-12.738 7.355c-1.334.77-3-.193-3-1.732v-14.71c0-1.539 1.666-2.501 3-1.732l12.738 7.355z"
+                  />
+                </svg>
+              </span>
+            </>
+          )}
+
+          <div className="thumb-wrap w-full h-full">
+            {currentMedia.resource_type === "video" && isPlaying ? (
+              <iframe
+                className="w-full h-full absolute inset-0"
+                src={`https://www.youtube.com/embed/${currentMedia.resource_value}?autoplay=1&rel=0`}
+                title={currentMedia.name}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
               <div
-                className="undefined opacity-0 transition-opacity duration-300 ease-in-out"
-                style={{
-                  fontSize: "0px",
-                  objectFit: "cover",
-                  opacity: 1,
-                }}
+                className="w-full h-full transition-opacity duration-300 ease-in-out"
+                style={{ opacity: 1 }}
               >
                 <Image
-                  alt="IELTS Course by Munzereen Shahid"
-                  src="https://cdn.10minuteschool.com/images/thumbnails/IELTS_new_16_9.png"
-                  width={867}
-                  height={480}
+                  alt={currentMedia.name}
+                  src={
+                    currentMedia.resource_type === "video"
+                      ? currentMedia.thumbnail_url ||
+                        `https://img.youtube.com/vi/${currentMedia.resource_value}/hqdefault.jpg`
+                      : currentMedia.resource_value
+                  }
+                  width={MAIN_PLAYER_WIDTH}
+                  height={MAIN_PLAYER_HEIGHT}
                   priority
-                  className="w-full"
-                  style={{ color: "transparent" }}
+                  className="w-full h-full object-cover"
                 />
               </div>
-            </div>
+            )}
           </div>
         </div>
 
-        <div className="absolute left-[10px] top-1/2 -translate-y-1/2 z-[4] h-[25px] w-[25px] cursor-pointer">
-          <svg
-            stroke="currentColor"
-            fill="currentColor"
-            strokeWidth="0"
-            viewBox="0 0 512 512"
-            color="white"
-            style={{ color: "white" }}
-            height="25"
-            width="25"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM271 135c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-87 87 87 87c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L167 273c-9.4-9.4-9.4-24.6 0-33.9L271 135z"></path>
-          </svg>
-        </div>
-        <div className="absolute right-[10px] top-1/2 z-[4] -translate-y-1/2 h-[25px] w-[25px] cursor-pointer">
-          <svg
-            stroke="currentColor"
-            fill="currentColor"
-            strokeWidth="0"
-            viewBox="0 0 512 512"
-            color="white"
-            style={{ color: "white" }}
-            height="25"
-            width="25"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM241 377c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l87-87-87-87c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L345 239c9.4 9.4 9.4 24.6 0 33.9L241 377z"></path>
-          </svg>
-        </div>
+        {/* Arrows */}
+        {mediaItems.length > 1 && (
+          <>
+            <div
+              className="absolute left-[10px] top-1/2 -translate-y-1/2 z-[4] h-[25px] w-[25px] cursor-pointer"
+              onClick={goToPrevMedia}
+            >
+              {/* Left arrow */}
+              <svg
+                viewBox="0 0 512 512"
+                fill="white"
+                height="25"
+                width="25"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM271 135c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-87 87 87 87c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L167 273c-9.4-9.4-9.4-24.6 0-33.9L271 135z" />
+              </svg>
+            </div>
+            <div
+              className="absolute right-[10px] top-1/2 -translate-y-1/2 z-[4] h-[25px] w-[25px] cursor-pointer"
+              onClick={goToNextMedia}
+            >
+              {/* Right arrow */}
+              <svg
+                viewBox="0 0 512 512"
+                fill="white"
+                height="25"
+                width="25"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM241 377c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l87-87-87-87c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L345 239c9.4 9.4 9.4 24.6 0 33.9L241 377z" />
+              </svg>
+            </div>
+          </>
+        )}
       </div>
-      {/* slider pagination */}
-      <div className="flex gap-4 p-4 overflow-x-auto hideScrollbar">
-        <div>
-          <div>
-            <div className="relative w-[55px] rounded cursor-pointer overflow-hidden outline-[2px] outline-[#1CAB55]">
-              <div
-                className="rounded opacity-0 transition-opacity duration-300 ease-in-out"
-                style={{ fontSize: "0px", opacity: 1 }}
-              >
-                <Image
-                  alt="preview_gallery"
-                  src="https://cdn.10minuteschool.com/images/thumbnails/IELTS_new_16_9.png"
-                  width={86}
-                  height={50}
-                  style={{ color: "transparent" }}
-                  loading="lazy"
-                  priority={false}
-                />
-              </div>
-              <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                <div
-                  className="undefined opacity-0 transition-opacity duration-300 ease-in-out"
-                  style={{ fontSize: "0px", opacity: 1 }}
-                >
+
+      {/* Thumbnails */}
+      <div
+        className="flex gap-4 p-4 overflow-x-auto hideScrollbar"
+        ref={paginationRef}
+      >
+        {mediaItems.map((item, index) => (
+          <div
+            key={`${item.resource_value}-${index}`}
+            ref={(el) => {
+              thumbnailRefs.current[index] = el;
+            }}
+          >
+            <div
+              className={`relative rounded cursor-pointer overflow-hidden outline-[2px] ${
+                index === currentMediaIndex
+                  ? "outline-[#1CAB55]"
+                  : "border border-gray-300 outline-white"
+              }`}
+              style={{
+                width: PAGINATION_THUMB_WIDTH,
+                height: PAGINATION_THUMB_HEIGHT,
+                flexShrink: 0,
+              }}
+              onClick={() => handleThumbnailClick(index)}
+            >
+              <Image
+                alt={item.name}
+                src={
+                  item.resource_type === "video"
+                    ? item.thumbnail_url ||
+                      `https://img.youtube.com/vi/${item.resource_value}/default.jpg`
+                    : item.resource_value
+                }
+                width={PAGINATION_THUMB_WIDTH}
+                height={PAGINATION_THUMB_HEIGHT}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              {item.resource_type === "video" && (
+                <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                   <Image
                     alt="Play The Video"
                     src="https://10minuteschool.com/images/annual_exam/play_icon_2.svg"
                     width={20}
                     height={20}
-                    priority
-                    style={{ color: "transparent" }}
                   />
                 </div>
-              </div>
+              )}
             </div>
           </div>
-        </div>
-        <div>
-          <div>
-            <div className="relative w-[55px] rounded cursor-pointer border-0">
-              <div
-                className="rounded opacity-0 transition-opacity duration-300 ease-in-out"
-                style={{ fontSize: "0px", opacity: 1 }}
-              >
-                <Image
-                  alt="preview_gallery"
-                  src="https://cdn.10minuteschool.com/images/catalog/media/PDP_Banner-1_1726737298483.png"
-                  width={86}
-                  height={50}
-                  style={{ color: "transparent" }}
-                  loading="lazy"
-                  priority={false}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div>
-            <div className="relative w-[55px] rounded cursor-pointer border-0">
-              <div
-                className="rounded opacity-0 transition-opacity duration-300 ease-in-out"
-                style={{ fontSize: "0px", opacity: 1 }}
-              >
-                <Image
-                  alt="preview_gallery"
-                  src="https://cdn.10minuteschool.com/images/catalog/media/PDP_Banner-2_1726736040872.png"
-                  width={86}
-                  height={50}
-                  style={{ color: "transparent" }}
-                  loading="lazy"
-                  priority={false}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div>
-            <div className="relative w-[55px] rounded cursor-pointer border-0">
-              <div
-                className="rounded opacity-0 transition-opacity duration-300 ease-in-out"
-                style={{ fontSize: "0px", opacity: 1 }}
-              >
-                <Image
-                  alt="preview_gallery"
-                  src="https://cdn.10minuteschool.com/images/catalog/media/introduction_1706097447220.jpg"
-                  width={86}
-                  height={50}
-                  style={{ color: "transparent" }}
-                  loading="lazy"
-                  priority={false}
-                />
-              </div>
-              <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                <div
-                  className="undefined opacity-0 transition-opacity duration-300 ease-in-out"
-                  style={{ fontSize: "0px", opacity: 1 }}
-                >
-                  <Image
-                    alt="Play The Video"
-                    src="https://10minuteschool.com/images/annual_exam/play_icon_2.svg"
-                    width={20}
-                    height={20}
-                    priority
-                    style={{ color: "transparent" }}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div>
-            <div className="relative w-[55px] rounded cursor-pointer border-0">
-              <div
-                className="rounded opacity-0 transition-opacity duration-300 ease-in-out"
-                style={{ fontSize: "0px", opacity: 1 }}
-              >
-                <Image
-                  alt="preview_gallery"
-                  src="https://cdn.10minuteschool.com/images/catalog/media/QBz8FX4GE_w-HD_1718880944063.jpg"
-                  width={86}
-                  height={50}
-                  style={{ color: "transparent" }}
-                  loading="lazy"
-                  priority={false}
-                />
-              </div>
-              <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                <div
-                  className="undefined opacity-0 transition-opacity duration-300 ease-in-out"
-                  style={{ fontSize: "0px", opacity: 1 }}
-                >
-                  <Image
-                    alt="Play The Video"
-                    src="https://10minuteschool.com/images/annual_exam/play_icon_2.svg"
-                    width={20}
-                    height={20}
-                    priority
-                    style={{ color: "transparent" }}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div>
-            <div className="relative w-[55px] rounded cursor-pointer border-0">
-              <div
-                className="rounded opacity-0 transition-opacity duration-300 ease-in-out"
-                style={{ fontSize: "0px", opacity: 1 }}
-              >
-                <Image
-                  alt="preview_gallery"
-                  src="https://cdn.10minuteschool.com/images/catalog/media/AvB2ibYd1z4-HD_1707647843136.jpg"
-                  width={86}
-                  height={50}
-                  style={{ color: "transparent" }}
-                  loading="lazy"
-                  priority={false}
-                />
-              </div>
-              <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                <div
-                  className="undefined opacity-0 transition-opacity duration-300 ease-in-out"
-                  style={{ fontSize: "0px", opacity: 1 }}
-                >
-                  <Image
-                    alt="Play The Video"
-                    src="https://10minuteschool.com/images/annual_exam/play_icon_2.svg"
-                    width={20}
-                    height={20}
-                    priority
-                    style={{ color: "transparent" }}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </>
   );

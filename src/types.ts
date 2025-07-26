@@ -13,7 +13,7 @@ interface SecondaryCtaItem {
   value?: string;
 }
 
-interface Media {
+export interface Media {
   name: string;
   resource_type: string;
   resource_value: string;
