@@ -1,11 +1,11 @@
 import React from "react";
-import CallToAction from "./call-to-action";
-import Checklist from "./checklist";
-import Contact from "./contact";
-import Trailer from "./trailer";
 import { Media } from "@/types";
+import TrailerSection from "./TrailerSection";
+import CallToAction from "./CallToActionSection";
+import Checklist from "./ChecklistSection";
+import Contact from "./ContactSection";
 
-interface CourseInfoProps {
+interface CourseInfoSectionProps {
   checklistData: {
     id: string;
     icon: string;
@@ -21,13 +21,13 @@ interface CourseInfoProps {
   media: Media[];
 }
 
-function CourseInfo({
+function CourseInfoSection({
   checklistData,
   title,
   description,
   cta_text,
   media,
-}: CourseInfoProps) {
+}: CourseInfoSectionProps) {
   return (
     <div
       style={{
@@ -66,7 +66,7 @@ function CourseInfo({
           <div className="md:sticky md:top-[112px]">
             <div className="md:border">
               <div className="md:p-1">
-                <Trailer mediaItems={media} />
+                <TrailerSection mediaItems={media} />
               </div>
               <div className="hidden md:block">
                 <CallToAction className="p-4" name={cta_text.name} />
@@ -81,4 +81,4 @@ function CourseInfo({
   );
 }
 
-export default CourseInfo;
+export default CourseInfoSection;

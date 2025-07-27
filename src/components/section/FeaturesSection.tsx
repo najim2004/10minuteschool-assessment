@@ -2,11 +2,16 @@ import { FeatureValue, Section } from "@/types";
 import Image from "next/image";
 import React from "react";
 
-interface CourseFeaturesProps extends Section {
+interface FeaturesSectionProps extends Section {
   values: FeatureValue[];
 }
 
-function Features({ name, type, order_idx, values }: CourseFeaturesProps) {
+function FeaturesSection({
+  name,
+  type,
+  order_idx,
+  values,
+}: FeaturesSectionProps) {
   if (!values || values.length === 0) {
     return null;
   }
@@ -54,4 +59,4 @@ function Features({ name, type, order_idx, values }: CourseFeaturesProps) {
   );
 }
 
-export default Features;
+export default FeaturesSection;

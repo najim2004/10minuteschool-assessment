@@ -1,17 +1,18 @@
+import { CheckIcon } from "@/assets/icons";
 import { FeatureExplanationValue, Section } from "@/types";
 import Image from "next/image";
 import React from "react";
 
-interface CourseExclusiveFeatureProps extends Section {
+interface ExclusiveFeatureProps extends Section {
   values: FeatureExplanationValue[];
 }
 
-function FeatureExplanations({
+function FeatureExplanationsSection({
   type,
   order_idx,
   name,
   values,
-}: CourseExclusiveFeatureProps) {
+}: ExclusiveFeatureProps) {
   return (
     <div id={type} style={{ order: order_idx }}>
       <div>
@@ -35,22 +36,7 @@ function FeatureExplanations({
                       key={index}
                       className="flex flex-row items-center gap-5"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="19"
-                        height="15"
-                        fill="none"
-                        viewBox="0 0 19 15"
-                      >
-                        <path
-                          fill="#6294F8"
-                          stroke="#6294F8"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="0.893"
-                          d="M18.168 1.508a.792.792 0 01-.006 1.111L6.645 14.143a.77.77 0 01-1.087.005L.77 9.433a.792.792 0 01-.015-1.11.77.77 0 011.098-.016l4.242 4.177L17.07 1.502a.77.77 0 011.098.006z"
-                        />
-                      </svg>
+                      <CheckIcon />
                       <p className="text-[14px] font-[400px] leading-[24px] text-[#4B5563] md:text-[16px]">
                         {item}
                       </p>
@@ -83,4 +69,4 @@ function FeatureExplanations({
   );
 }
 
-export default FeatureExplanations;
+export default FeatureExplanationsSection;

@@ -1,10 +1,10 @@
-import AboutCourse from "@/components/about-course";
-import CourseInfo from "@/components/course-info";
-import CourseInstructor from "@/components/course-instructor";
-import FeatureExplanations from "@/components/feature-explanations";
-import Features from "@/components/features";
-import Pointers from "@/components/pointers";
-import StickyChecklist from "@/components/sticky-checklist";
+import AboutCourseSection from "@/components/section/AboutCourseSection";
+import CourseInfoSection from "@/components/section/CourseInfoSection";
+import CourseInstructorSection from "@/components/section/CourseInstructorSection";
+import FeatureExplanationsSection from "@/components/section/FeatureExplanationsSection";
+import FeaturesSection from "@/components/section/FeaturesSection";
+import PointersSection from "@/components/section/PointersSection";
+import StickyChecklistSection from "@/components/section/StickyChecklistSection";
 import {
   AboutValue,
   CourseData,
@@ -50,7 +50,7 @@ export default async function Home() {
   }
   return (
     <div>
-      <CourseInfo
+      <CourseInfoSection
         title={data.title}
         description={data.description}
         checklistData={data.checklist}
@@ -61,7 +61,7 @@ export default async function Home() {
         <section className="order-2 flex-1 md:order-1 md:max-w-[calc(100%_-_348px)] lg:max-w-[calc(100%_-_448px)]">
           {data.sections.map((section) =>
             section.type === "instructors" ? (
-              <CourseInstructor
+              <CourseInstructorSection
                 key={section.type}
                 type={section.type}
                 name={section.name}
@@ -71,7 +71,7 @@ export default async function Home() {
                 values={section.values as InstructorValue[]}
               />
             ) : section.type === "features" ? (
-              <Features
+              <FeaturesSection
                 key={section.type}
                 type={section.type}
                 name={section.name}
@@ -81,7 +81,7 @@ export default async function Home() {
                 values={section.values as FeatureValue[]}
               />
             ) : section.type === "pointers" ? (
-              <Pointers
+              <PointersSection
                 key={section.type}
                 type={section.type}
                 name={section.name}
@@ -91,7 +91,7 @@ export default async function Home() {
                 values={section.values as PointerValue[]}
               />
             ) : section.type === "about" ? (
-              <AboutCourse
+              <AboutCourseSection
                 key={section.type}
                 type={section.type}
                 name={section.name}
@@ -101,7 +101,7 @@ export default async function Home() {
                 values={section.values as AboutValue[]}
               />
             ) : section.type === "feature_explanations" ? (
-              <FeatureExplanations
+              <FeatureExplanationsSection
                 key={section.type}
                 type={section.type}
                 name={section.name}
@@ -116,7 +116,7 @@ export default async function Home() {
           )}
         </section>
         <section className="w-full md:max-w-[330px] lg:max-w-[400px] order-1 bg-white">
-          <StickyChecklist
+          <StickyChecklistSection
             checklistData={data.checklist}
             cta_text={data.cta_text}
           />

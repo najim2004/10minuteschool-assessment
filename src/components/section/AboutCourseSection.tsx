@@ -1,11 +1,11 @@
 import { AboutValue, Section } from "@/types";
 import React from "react";
 
-interface CourseDetailsProps extends Section {
+interface AboutCourseSectionProps extends Section {
   values: AboutValue[];
 }
 
-function AboutCourse({ type, order_idx, name, values }: CourseDetailsProps) {
+function AboutCourseSection({ type, order_idx, name, values }: AboutCourseSectionProps) {
   return (
     <div id={type} style={{ order: order_idx }}>
       <div className="mb-6 md:mb-10 mt-4 max-w-[900px] md:mt-[42px]">
@@ -41,4 +41,4 @@ function AboutCourse({ type, order_idx, name, values }: CourseDetailsProps) {
   );
 }
 
-export default AboutCourse;
+export default AboutCourseSection;

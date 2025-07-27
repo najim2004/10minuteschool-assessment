@@ -1,10 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Checklist from "./checklist";
-import CallToAction from "./call-to-action";
-import Contact from "./contact";
-
-interface StickyChecklistProps {
+import CallToAction from "./CallToActionSection";
+import Checklist from "./ChecklistSection";
+import Contact from "./ContactSection";
+interface StickyChecklistSectionProps {
   checklistData: {
     id: string;
     icon: string;
@@ -17,7 +16,10 @@ interface StickyChecklistProps {
   };
 }
 
-export default function StickyChecklist({ checklistData, cta_text }: StickyChecklistProps) {
+export default function StickyChecklistSection({
+  checklistData,
+  cta_text,
+}: StickyChecklistSectionProps) {
   const [isCheckList1Visible, checklist1visible] = useState(true);
   const [isMdUp, setIsMdUp] = useState(false);
 
@@ -66,7 +68,7 @@ export default function StickyChecklist({ checklistData, cta_text }: StickyCheck
       `}
     >
       <div className="md:border md:p-4">
-        <CallToAction name={cta_text.name}/>
+        <CallToAction name={cta_text.name} />
         <Checklist items={checklistData} />
       </div>
       <Contact />
